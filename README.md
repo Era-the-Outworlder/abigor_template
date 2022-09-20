@@ -1,2 +1,2 @@
 # abigor_template
-Repository for the Abigor, an ukagaka template written using YAYA
+Repository for ABIGOR, an SSP compatible ukagaka template written using YAYA
