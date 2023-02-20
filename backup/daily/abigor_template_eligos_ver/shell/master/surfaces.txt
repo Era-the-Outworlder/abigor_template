@@ -1,0 +1,51 @@
+// ----- ELIGOS Template SHELL surfaces.txt -----
+
+version,1
+
+// ---------------------------Surfaces.txt--------------------------
+// Sorry? It will be a bit before I have this proper figured out and commented.
+
+// ----- Tooltips -----
+
+sakura.tooltips 
+{
+
+}
+
+// ----- Cursors -----
+
+sakura.cursor 
+{ 
+
+}
+
+ 
+// ----- Poses -----
+
+
+// ----- surface0: default surface Sakura -----
+surface0
+{
+	element0,overlay,surface0.png,0,0
+}
+
+// ----- surface10: default surface Kero -----
+surface10
+{
+	element0,overlay,surface10.png,0,0
+}
+
+// ----- surface19: default "sing" surface Kero -----
+
+
+// ----- surface20- default "signboard" -----
+surface20
+{
+	element0,overlay,surface20.png,0,0
+}
+
+// ----- surface25- default "sing" surface Sakura -----
+surface25
+{
+	element0,overlay,surface25.png,0,0
+}

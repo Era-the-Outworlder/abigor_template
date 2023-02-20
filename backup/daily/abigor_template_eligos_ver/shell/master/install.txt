@@ -1,0 +1,10 @@
+// ----- ELIGOS Template Shell Install -----
+
+charset,UTF-8
+name,ELIGOS Template Shell
+type,shell
+directory,master
+accept,ELIGOS
+
+// refresh, bool
+// refreshundeletemask, filename 1: filename 2 ...

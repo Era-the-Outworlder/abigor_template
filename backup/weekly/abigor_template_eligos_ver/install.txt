@@ -1,0 +1,13 @@
+﻿// ---- Abigor Template, ELIGOS version install.txt ----
+
+charset,UTF-8
+type,ghost
+name,ELIGOS Empty Template
+directory,ELIGOS_template
+// accept,ELIGOS
+
+balloon.directory,eto_balloon_template
+balloon.source.directory,eto_balloon_template
+
+// refresh, bool
+// refreshundeletemask, filename 1: filename 2 ...

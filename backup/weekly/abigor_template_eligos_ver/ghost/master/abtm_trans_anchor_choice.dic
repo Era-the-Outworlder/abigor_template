@@ -1,0 +1,90 @@
+
+// ┌──────┬──────────────────────────────────────────────────────────────────┐
+// │ Ref# │                             Contents                             │
+// ╞══════╪══════════════════════════════════════════════════════════════════╡
+// │ 0    │ The original script                                              │
+// │ 1    │ Source:                                                          │
+// │      │ communicate                                                      │
+// │      │ sstp-send                                                        │
+// │      │ owned                                                            │
+// │      │ remote                                                           │
+// │      │ notranslate                                                      │
+// │      │ if sourced from plugin, the above will be followed by ",EventID" │
+// │      │                                                                  │
+// │ 2    │ EventID of the originating event                                 │
+// │ 3    │ References of the originating event.                             │
+// └──────┴──────────────────────────────────────────────────────────────────┘
+
+OnTranslate
+{
+	
+}
+
+
+/* ############# OnChoice ############# */
+// ┌───────┬──────────────────────────────────┐
+// │ ref # │        Reference Contents        │
+// ╞═══════╧══════════════════════════════════╡
+// │              OnChoiceSelect              │
+// │ 0     │ ID of the selected choice.       │
+// │             OnChoiceSelectEx             │
+// │ 0     │ Choice text                      │
+// │ 1     │ ID of the choice.                │
+// │ 2+    │ Extended information             │
+// │              OnChoiceEnter               │
+// │ 0     │ Choice text                      │
+// │ 1     │ ID of the choice.                │
+// │ 2+    │ Extended information             │
+// │             OnChoiceTimeout              │
+// │ 0     │ ID of timed-out choice           │
+// │              OnChoiceHover               │
+// │ 0     │ Choice text                      │
+// │ 1     │ ID of the choice.                │
+// │ 2+    │ Extended information             │
+// │              OnAnchorSelect              │
+// │ 0     │ The ID of the selected jumper.   │
+// │             OnAnchorSelectEx             │
+// │ 0     │ The text of the selected jumper. │
+// │ 1     │ The ID of the selected jumper.   │
+// │ 2+    │ Extended information             │
+// └───────┴──────────────────────────────────┘
+
+// OnChoiceSelect is included in yaya_shiori3.dic
+
+OnChoiceSelectEx
+{
+
+}
+
+OnChoiceEnter
+{
+
+}
+
+// ----- OnChoiceTimeout -----
+// Called every time a choice is timed out, regardless of what event is playing.
+
+OnChoiceTimeout
+{
+	
+}
+
+OnChoiceHover
+{
+
+}
+
+OnAnchorSelect
+{
+
+}
+
+OnAnchorSelectEx
+{
+
+}
+
+OnRecommendsiteChoice
+{
+	// "https://plaintexttools.github.io/plain-text-table/"
+}

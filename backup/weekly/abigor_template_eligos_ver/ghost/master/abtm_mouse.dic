@@ -1,0 +1,248 @@
+﻿//	                   __  __
+//	                 ,',.\/,.`.
+//	                 \(_,''._)/
+//	                 ._(.||.)_,		                             
+//	                 (,>(__)<.)		   _____                     
+//	                 '`-.==,-'`		  |     | ___  _ _  ___  ___ 
+//	                     )(_		  | | | || . || | ||_ -|| -_|
+//	            _____ _.'   `-.		  |_|_|_||___||___||___||___|
+//	       _.-''    ,','|    \.\
+//	    ,-'         `-.`:  .  :\\_
+//	   /,::::, ,::::, ,>))._ ,' `'`
+//	  // ::::/ /::::/ /    )'/.
+//	 // ::::/ /::::/ /   ,',|`.\
+//	/______________/   /,'||'|))
+//	\ _ _ __ _ _ _ \,':(_ |('((__
+//	 \___(,.)SSt____\,|_)))_))`--`
+//	     /,'
+
+
+/* ############# Mouse Functions ############# */
+// Here are the SHIORI Functions related to interacting with the ghost via mouse. Clicking, dragging, swiping, here it is
+
+// Reference Chart for Most Mouse Functions
+
+// ┌───────┬────────────────────────────────────────────────────────────────────┐
+// │ ref # │                         Reference Contents                         │
+// ╞═══════╪════════════════════════════════════════════════════════════════════╡
+// │ 0     │ local X coordinate of mouse cursor                                 │
+// │       │                                                                    │
+// │ 1     │ local Y coordinate of mouse cursor                                 │
+// │       │                                                                    │
+// │ 2     │ always "0" ----- EXCEPT FOR:                                       │
+// │       │ OnMouseWheel, OnMouseDragStart, OnMouseDragEnd:                    │
+// │       │ The amount of rotation of the mouse wheel.                         │
+// │       │ Positive forward/up, negative backward /down                       │
+// │       │                                                                    │
+// │ 3     │ scope of surface (0 for sakura, 1 for kero, etc)                   │
+// │       │                                                                    │
+// │ 4     │ surface collision name/identifier                                  │
+// │       │                                                                    │
+// │ 5     │ Mouse Button Identifier:                                           │
+// │       │ "0" for leftmouse, "1" for rightmouse, "2" for middlemouse         │
+// │       │ for OnMouseDragStart/End, only left and right                      │
+// │       │                                                                    │
+// │ 5     │ FOR "EX" FUNCTIONS:                                                │
+// │       │ "middle" for middlemouse / mouse wheel. Has Priority               │
+// │       │ "xbutton1" for extended button 1, "xbutton2" for extended button 2 │
+// │       │                                                                    │
+// │ 5     │ FOR FUNCTIONS NOT TRIGGERED BY CLICK:                              │
+// │       │ always "0"                                                         │
+// │       │                                                                    │
+// │ 6     │ Windows 7+ Input Source: "mouse" for mouse input,                  │
+// │       │ "touch" for touch panel of multi-touch environment                 │
+// │       │                                                                    │
+// │ 7     │ OnMouseMultipleClick and OnMouseMultipleClickEx Only:              │
+// │       │ Number of Consecutive Clicks                                       │
+// └───────┴────────────────────────────────────────────────────────────────────┘
+
+// All OnMouse events are technically optional, but if your ghost is going to have a menu when clicked on, OnMouseClick or OnMouseDoubleClick is recommended. 
+
+
+
+
+/* ############# OnMouseUp && OnMouseUpEx ############# */
+
+// Called when the Mouse Buttons are released. Highest Priority
+
+OnMouseUp
+{
+
+}
+
+OnMouseUpEx
+{
+
+}
+
+/* ############# OnMouseDown && OnMouseDownEx ############# */
+
+// Called when the Mouse Buttons are pressed down. Highest Priority
+
+OnMouseDown
+{
+
+}
+
+OnMouseDownEx
+{
+
+}
+
+/* ############# OnMouseClick && OnMouseClickEx ############# */
+
+// Called on release when the mouse is clicked, only if there is no response from OnMouseUp or OnMouseUpEx
+
+OnMouseClick
+{
+
+}
+
+OnMouseClickEx
+{
+
+}
+
+/* ############# OnMouseDoubleClick && OnMouseDoubleClickEx ############# */
+
+// Called when the mouse is double-clicked if there is no response from OnMouseUp or OnMouseUpEx-- Will BREAK/interrupt OnMouseClick or OnMouseClickEx.
+
+
+OnMouseDoubleClick
+{
+
+}
+
+OnMouseDoubleClickEx
+{
+
+}
+
+
+/* ############# OnMouseMultipleClick && OnMouseMultipleClickEx ############# */
+
+// Called when the mouse is clicked multiple times, only if there is no response from OnMouseUp or OnMouseUpEx-- Will BREAK/interrupt OnMouseDoubleClick or OnMouseDoubleClickEx. EX takes priority for Middle/Wheel.
+
+OnMouseMultipleClick
+{
+
+}
+
+OnMouseMultipleClickEx
+{
+
+}
+
+/* ############# OnMouseWheel ############# */
+
+// ----- OnMouseWheel -----
+// When the wheel of a mouse moves
+
+OnMouseWheel
+{
+
+}
+
+/* ############# OnMouseDragStart && OnMouseDragEnd ############# */
+
+// ----- OnMouseDragStart -----
+// When dragging of ghost starts
+
+OnMouseDragStart
+{
+
+}
+
+// ----- OnMouseDragEnd -----
+// When dragging of ghost ends.
+OnMouseDragEnd
+{
+
+}
+
+
+/* ############# OnMouseMove, OnMouseEnter, OnMouseLeave, OnMouseHover ############# */
+
+// In order of Priority:
+// OnMouseMove -> OnMouseEnter - OnMouseLeave -> OnMouseEnterAll - OnMouseLeaveAll
+// OnMouseHover only seems to trigger if OnMouseMove does not return
+
+// ----- OnMouseMove -----
+OnMouseMove
+{
+
+}
+
+// ----- OnMouseEnter -----
+// When the mouse enters any collision area of the ghost. Takes Priority over OnMouseEnterAll
+OnMouseEnter
+{
+
+}
+
+// --------- OnMouseLeave -----
+// When the mouse leaves any collision area of the ghost. Takes Priority over OnMouseLeaveAll
+
+OnMouseLeave
+{
+
+}
+
+// ----- OnMouseEnterAll -----
+// When the mouse enters the outermost boundary of the ghost. Does not trigger by changing collision areas
+OnMouseEnterAll
+{
+
+}
+
+// ----- OnMouseLeaveAll -----
+// When the mouse leaves the outermost boundary of the ghost. Does not trigger by changing collision areas.
+OnMouseLeaveAll
+{
+
+}
+
+
+// ----- OnMouseHover -----
+// When mouse cursor is stationary. Seems to only be called if Reference4 is NOT empty, aka if the mouse cursor is on a surface has a declared collision.
+
+OnMouseHover
+{
+
+}
+
+/* ############# OnMouseGesture ############# */
+
+// Occurs when the mouse is right-dragged. Supposedly should also trigger when wheel-click-dragged, but have not seen that to function. 
+// Per UKADOC:
+// "Since SSP 2.3.53, if SHIORI does not return anything (204 No Content is returned) for something where Reference 5 of OnMouseGesture is up or down in the touch panel environment, OnMouseWheel will occur as an alternative event. See the OnMouseWheel section for details."
+// However I have not been able to test that, as I am not working on a touch-input device
+
+// ┌───────┬──────────────────────────────────────────────────────────────────────────────────┐
+// │ ref # │                                Reference Contents                                │
+// ╞═══════╪══════════════════════════════════════════════════════════════════════════════════╡
+// │ 0     │ scope of surface (0 for sakura, 1 for kero, etc)                                 │
+// │       │                                                                                  │
+// │ 1     │ Mouse cursor XY coordinates (1 byte value delimited)                             │
+// │       │                                                                                  │
+// │ 2     │ surface collision name/identifier                                                │
+// │       │                                                                                  │
+// │ 3     │ Mouse cursor XY coordinates (1 byte value delimited) that started right dragging │
+// │       │                                                                                  │
+// │ 4     │ surface collision name/identifier of right-drag start                            │
+// │       │                                                                                  │
+// │ 5     │ Gesture direction:                                                               │
+// │       │ "left_up" to upper lefft, "up" upwards, "right_up" to upper right                │
+// │       │ "left" to left, "right" to right                                                 │
+// │       │ "left_down" to lower left, "down" downwards, "right_down" to lower right         │
+// │       │ "circle.cw" clockwise, "circle.ccw" counterclockwise                             │
+// │       │ "end" release of button                                                          │
+// │       │                                                                                  │
+// │ 6     │ Gesture movement angle:                                                          │
+// │       │ From 0 degrees to the right, counterclockwise 360 degrees.                       │
+// └───────┴──────────────────────────────────────────────────────────────────────────────────┘
+
+OnMouseGesture
+{
+
+}
