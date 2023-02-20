@@ -52,14 +52,15 @@ OnTeachName
 
 OnNameTeach
 {
-	_tempname = TOSTR(reference0) //this stores the name value from reference0 in _tempname
+	_tempname = TOSTR(reference0) //this stores the name value from reference0 in _tempname. it will be stripped of punction to be checked.
+	_setname = TOSTR(reference0) //is a duplicate that may be changed by events. this is the version that will be set as the username.
 	
 	// There is surely a better way to strip out punctuation, but I haven't got it in my head
-	reference0 = TOLOWER(reference0) //changes it to lowercase
-	reference0 = REPLACE(reference0," ","") //removes spaces
-	reference0 = REPLACE(reference0,".","") //removes periods
-	reference0 = REPLACE(reference0,"-","") //removes dashes
-	reference0 = REPLACE(reference0,"_","") //removes underscores
+	_tempname = TOLOWER(_tempname) //changes it to lowercase
+	_tempname = REPLACE(_tempname," ","") //removes spaces
+	_tempname = REPLACE(_tempname,".","") //removes periods
+	_tempname = REPLACE(_tempname,"-","") //removes dashes
+	_tempname = REPLACE(_tempname,"_","") //removes underscores
 	
 	
 	//	"sakuraname" is the baseware Property System value for sakura.name as set in descript.txt
@@ -67,49 +68,45 @@ OnNameTeach
 	
 	_selfname = TOSTR(sakuraname)
 	
-	if _tempname == _selfname //Checks if the users name is the same as the ghost's Sakura-name
+	if reference0 == _selfname //Checks if the users name is the same as the ghost's Sakura-name
 	{
 		"Oh, that is my name too.\n"
 		--
-		"\![*] \q[Change,OnTeachName]\n \n[-100]\f[align,right]\![*] \q[Keep,OnNameDone,keepghostname,%(_tempname)]\n"
+		"\![*] \q[Change,OnTeachName]\n \n[-100]\f[align,right]\![*] \q[Keep,OnNameDone,keepghostname,%(_setname)]\n"
 	}
 	
 	elseif reference0 == "" //This is if the user doesn't put in a name at all or puts one that is only spaces, periods, dashes, or uderscores since that'd also get awkward in dialogue.
 	{
-		username = "Not A Valid Name" //this sets the user's name to some Value
+		_setname = "Not A Valid Name" //this sets the user's name to some Value
 	
 		"That is not an acceptable name. I can call you %(username). Is there something else I can call you?\n"
 		--
-		"\![*] \q[Change,OnTeachName]\n \n[-100]\f[align,right]\![*] \q[Keep,OnNameDone,keepname]\n"
+		"\![*] \q[Change,OnTeachName]\n \n[-100]\f[align,right]\![*] \q[Keep,OnNameDone,keepname,%(_setname)]\n"
 	}
 	// The above can be copied/modified to make any number of responses to names that the ghost does not want to use
 	
-	elseif _tempname == username //checks against existing username
+	elseif _setname == username //checks against existing username
 	{
 		
 		"That is already your username. Are you trying to change something else? \_w[500]\n[150]"
 		--
 		
-		"\![*] \q[Yes,OnHonorificChoice]\n \n[-100]\f[align,right]\![*] \q[No,OnNameDone,repeat]\n"
+		"\![*] \q[Yes,OnHonorificChoice,0,%(_setname)]\n \n[-100]\f[align,right]\![*] \q[No,OnNameDone,repeat,%(_setname)]\n"
 	}
 	
 	elseif reference0 == "Hypothetical Acceptable Name" //If there is a name the ghost will simply accept
-	{
-		username = _tempname
-		
+	{		
 		"Specific Comment Responding to that Name\n[200]"
 		--
 		"Do you want me to use a title or honorific when addressing you? \_w[500]\n[150]"
 		--
-		"\![*] \q[Yes,OnHonorificChoice]\n \n[-100]\f[align,right]\![*] \q[No,OnNameDone]\n"
+		"\![*] \q[Yes,OnHonorificChoice,0,%(_setname)]\n \n[-100]\f[align,right]\![*] \q[No,OnNameDone,,%(_setname)]\n"
 	}
 	else //if the user put in something not specified above, ie a proper name the ghost can use. 
 	{
-		username = _tempname
-		
 		"Do you want me to use a title or honorific when addressing you? \_w[500]\n[150]"
 		--
-		"\![*] \q[Yes,OnHonorificChoice]\n \n[-100]\f[align,right]\![*] \q[No,OnNameDone]\n"
+		"\![*] \q[Yes,OnHonorificChoice,0,%(_setname)]\n \n[-100]\f[align,right]\![*] \q[No,OnNameDone,,%(_setname)]\n"
 	}
 }
 
@@ -125,24 +122,24 @@ OnHonorificChoice
 		\![*] \q[Mrs.,OnHonorificChoice,4]\n/
 		\![*] \q[-ssi,OnHonorificChoice,5]\n/
 		\![*] \q[-san,OnHonorificChoice,6]\n/
-		\![*] \q[No title,OnNameDone]"
+		\![*] \q[No title,OnNameDone,0,%(reference1)]"
 	}
 	else
 	{
 		case reference0
 		{
 			when 1
-			{username = "Mx. " + username}
+			{username = "Mx. " + reference1}
 			when 2
-			{username = "Mr. " + username}
+			{username = "Mr. " + reference1}
 			when 3
-			{username = "Ms. " + username}
+			{username = "Ms. " + reference1}
 			when 4
-			{username = "Mrs. " + username}
+			{username = "Mrs. " + reference1}
 			when 5
-			{username = username + "-ssi"}
+			{username = reference1 + "-ssi"}
 			when 6
-			{username = username + "-san"}
+			{username = reference1 + "-san"}
 		}
 		--
 		OnNameDone
