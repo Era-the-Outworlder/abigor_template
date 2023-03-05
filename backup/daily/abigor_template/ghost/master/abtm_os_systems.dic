@@ -1,7 +1,7 @@
 // OS Functions
 
 OnNetworkHeavy{}
-OnNetworkStatusChange{}
+OnNetworkStatusChange{"%(REFTEST)"}
 
 OnSSTPBreak{}
 OnSSTPBlacklisting{}
