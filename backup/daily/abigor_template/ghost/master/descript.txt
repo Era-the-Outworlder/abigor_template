@@ -89,20 +89,20 @@ kero.seriko.alignmenttodesktop, free
 
 kero.seriko.defaultsurface,10
 
-kero.defaultx,0
-kero.defaulty,0
-kero.defaultleft,500
-kero.defaulttop,300
+// kero.defaultx,0
+// kero.defaulty,0
+// kero.defaultleft,500
+// kero.defaulttop,300
 
 // ---- char2 ----
 char2.seriko.alignmenttodesktop,free
 
 char2.seriko.defaultsurface,30
 
-char2.defaultx,0
-char2.defaulty,0
-char2.defaultleft,1000
-char2.defaulttop,600
+// char2.defaultx,0
+// char2.defaulty,0
+// char2.defaultleft,1000
+// char2.defaulttop,600
 
 
 // -----Draw Menu-----

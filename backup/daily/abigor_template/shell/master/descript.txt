@@ -24,8 +24,8 @@ readme.charset,UTF-8
 // sakura.name2, name
 // sakura.seriko.alignmenttodesktop,free
 
-sakura.defaultx,-100
-sakura.defaulty,100
+// sakura.defaultx,100
+// sakura.defaulty,100
 // sakura.defaultleft,100
 // sakura.defaulttop,100
 

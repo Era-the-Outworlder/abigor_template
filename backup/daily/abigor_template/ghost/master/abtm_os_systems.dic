@@ -33,11 +33,29 @@ OnMemoryLoadHigh{}
 OnMemoryLoadLow{}
 
 OnDisplayChange{}
+OnDisplayChangeEx
+{
+	changeType = reference0
+	
+	displayChange = reference1
+	displayChange = SPLIT(reference1,',',6)
+	for _i = 0 ; _i < 6 ; _i++ 
+	{
+		displayChange[_i] = TOINT(displaychange[_i])
+	}
+	
+	screenLeft = displayChange[0]
+	screenTop = displayChange[1]
+	screenRight = displayChange[2]
+	screenBottom = displayChange[3]
+	screenBitDepth = displayChange[4]
+	screenPrimary = displayChange[5]
+}
 OnDisplayHandover
 {
 	"%(REFTEST('OnDisplayHandover'))"
 }
-OnDisplayChangeEx{}
+
 OnDisplayPowerStatus{}
 
 

@@ -2,25 +2,69 @@
 // ----- SHIORI RESOURCE -----
 // Like their corresponding settings in descript.txt, except they actually WORK. maybe.
 
-// On_sakura.defaultx{0}
-// On_sakura.defaulty{0}
-// On_sakura.defaultleft{100}
-// On_sakura.defaulttop{100}
+On_sakura.defaultx
+{
+	_size = 200
+	_charWidth = SPLIT(_size,',',2)
+	_charLocation = (_charWidth[0])
+	"%(_charLocation)"
+}
+On_sakura.defaulty{screenBottom}
+
+// On_sakura.defaultleft{}
+// On_sakura.defaulttop{0}
 
 
-// On_kero.defaultx{500}
-// On_kero.defaulty{300}
+On_kero.defaultx
+{
+	_size = "\![get,property,OnGetCharSize,currentghost.scope(1).rect]"
+	_charWidth = SPLIT(_size,',',2)
+	_charLocation = screenRight/2
+	"%(_charLocation)"
+}
+On_kero.defaulty{screenBottom}
 // On_kero.defaultleft{200}
 // On_kero.defaulttop{200}
 
 
 
-// On_char2.defaultx{1000}
-// On_char2.defaulty{600}
-// On_char2.defaultleft{300}
-// On_char2.defaulttop{300}
-
-
+On_char2.defaultx
+{
+	_size = 200
+	_charWidth = SPLIT(_size,',',2)
+	_charLocation = screenRight - (_charWidth[0])
+	"%(_charLocation)"
+}
+On_char2.defaulty{screenBottom}
+// On_char2.defaultleft{500}
+// On_char2.defaulttop{500}
+ 
+char_size0
+{
+	"\![get,property,OnGetCharSize,currentghost.scope(0).rect]"
+}
+char_size1
+{
+	"\![get,property,OnGetCharSize,currentghost.scope(0).rect]"
+}
+char_size2
+{
+	"\![get,property,OnGetCharSize,currentghost.scope(0).rect]"
+}
+OnGetCharSize
+{
+	charsize = ("%property[currentghost.scope(0).rect]")
+	_charsize = SPLIT(_charsize,',',4)
+	for _i = 0 ; _i < 4 ; _i++ 
+	{
+		_charsize[_i] = TOINT(_charsize[_i])
+	}
+	
+	tempCharSize[0] = _charsize[2] - _charsize[0]
+	_tempCharSize[1] = _charsize[3] - _charsize[1]
+	"%(charsize)"
+	
+}
 /* #############  Overlap, Offscreen ############# */
 
 // These fuctions use the character with byte value 1 as a delimiter.
@@ -193,6 +237,28 @@ OnSurfaceRestore
 OnSurfaceChange
 {
 	// "%(REFTEST('OnSurfaceChange'))"
+	// --
+	// _surfaceChange = reference1
+	// _surfaceChange = SPLIT(reference1,',',4)
+	// for _i = 0 ; _i < 4 ; _i++ 
+	// {
+		// _surfaceChange[_i] = TOINT(_surfaceChange[_i])
+	// }
+	// if _surfaceChange[0] == 0
+	// {
+		// sakuraWidth = _surfaceChange[2]
+		// sakuraHeight = _surfaceChange[3]
+	// }
+	// elseif _surfaceChange[0] == 1
+	// {
+		// keroWidth = _surfaceChange[2]
+		// keroHeight = _surfaceChange[3]
+	// }
+	// elseif _surfaceChange[0] == 2
+	// {
+		// char2Width = _surfaceChange[2]
+		// char2Height = _surfaceChange[3]
+	// }
 }
 
 
