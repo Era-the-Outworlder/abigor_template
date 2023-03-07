@@ -1,8 +1,8 @@
 // ---- Developer Options ----
 
 updates.txt,nonar,noupdate
-updates.dau,nonar,noupdate
-updates.dau.bak,nonar,noupdate
+updates2.dau,nonar,noupdate
+updates2.dau.bak,nonar,noupdate
 
 
 ghost/master/profile/,nonar,noupdate
@@ -10,6 +10,7 @@ ghost/master/sfx/raw_audio/,nonar,noupdate
 
 ghost/master/yaya_variable.cfg,nonar,noupdate
 
+ghost/master/ayame.log,nonar,noupdate
 ghost/master/abigor_log.log,nonar,noupdate
 ghost/master/yaya_ssp_debug.log,nonar,noupdate
 ghost/master/ssp_shiori_log.txt,nonar,noupdate
