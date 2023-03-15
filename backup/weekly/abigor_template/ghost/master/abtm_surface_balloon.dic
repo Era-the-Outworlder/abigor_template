@@ -4,8 +4,7 @@
 
 On_sakura.defaultx
 {
-	_size = 200
-	_charWidth = SPLIT(_size,',',2)
+	_charWidth = SPLIT(sakurasize,',',2)
 	_charLocation = (_charWidth[0])
 	"%(_charLocation)"
 }
@@ -17,7 +16,7 @@ On_sakura.defaulty{screenBottom}
 
 On_kero.defaultx
 {
-	_size = "\![get,property,OnGetCharSize,currentghost.scope(1).rect]"
+	_size = EVAL("\![get,property,OnGetCharSize,currentghost.scope(1).rect]")
 	_charWidth = SPLIT(_size,',',2)
 	_charLocation = screenRight/2
 	"%(_charLocation)"
@@ -41,34 +40,30 @@ On_char2.defaulty{screenBottom}
  
 char_size0
 {
-	"\![get,property,OnGetCharSize,currentghost.scope(0).rect]"
+	sakurasize = "\![get,property,OnGetCharSize,currentghost.scope(0).rect]"
 }
-char_size1
+OnNotifyCharsize
 {
-	"\![get,property,OnGetCharSize,currentghost.scope(0).rect]"
-}
-char_size2
-{
-	"\![get,property,OnGetCharSize,currentghost.scope(0).rect]"
+
 }
 OnGetCharSize
 {
-	charsize = ("%property[currentghost.scope(0).rect]")
+	_charsize = TOSTR(reference0)
 	_charsize = SPLIT(_charsize,',',4)
 	for _i = 0 ; _i < 4 ; _i++ 
 	{
 		_charsize[_i] = TOINT(_charsize[_i])
 	}
 	
-	tempCharSize[0] = _charsize[2] - _charsize[0]
+	_tempCharSize[0] = _charsize[2] - _charsize[0]
 	_tempCharSize[1] = _charsize[3] - _charsize[1]
-	"%(charsize)"
+	"%(_tempCharSize)"
 	
 }
 /* #############  Overlap, Offscreen ############# */
 
 // These fuctions use the character with byte value 1 as a delimiter.
-// In both UTF-8 and Shift_JIS encoding, this is the Start of Heading glyph, .
+// In both UTF-8 and Shift_JIS encoding, this is the Start of Heading control character, .
 // YAYA has a function AUTO_TYPE_CONVERT which converts them to commas as in the examples below
 
 
